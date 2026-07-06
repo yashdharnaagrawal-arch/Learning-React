@@ -1,5 +1,5 @@
 import react from 'react'
-// import Child2 from './Child2.jsx'
+import Child2 from './Child2.jsx'
 
 //App -> Home -> NewComp : Transfer data  ??????
 
@@ -19,7 +19,7 @@ function Child({childNameTransfer, sendData, ...rest}){
         <button onClick={()=> sendData("Hello Parent!")}>
             Click Me!
         </button>
-        {/* <Child2 childNameTransfer={childNameTransfer}></Child2> */}
+        <Child2 childNameTransfer={childNameTransfer}></Child2>
         </>
     )
 }
