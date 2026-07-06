@@ -4,6 +4,10 @@ import Child from './Child';
 import Home from './Home';
 import Box1 from './Box1';
 import Box2 from './Box2';
+import Nav from './Nav';
+import Contact from './Contact';
+import About from './About';
+
 
 function App() {
   const x = 5;
@@ -70,6 +74,9 @@ function App() {
 
   return (
     <>
+    <Nav/>
+    <Contact/>
+    <About/>
     {/* Operators and basic functionality of rest */}
     <section>
         <h1>Learning React</h1>
