@@ -1,6 +1,7 @@
 import react from 'react'
 import Contact from './Contact';
 import About from './About';
+import { Link } from "react-router-dom";
 
 const Nav = () => {
     return(
@@ -12,8 +13,8 @@ const Nav = () => {
 
             <div>
                 <ul className="menu">
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/contact">Contact</a></li>
+                    <li><Link to="/about">About</Link></li>
+                    <li><Link to="/contact">Contact</Link></li>
                 </ul>
             </div>
         </nav>

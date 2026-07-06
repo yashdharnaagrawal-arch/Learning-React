@@ -7,6 +7,7 @@ import Box2 from './Box2';
 import Nav from './Nav';
 import About from './About';
 import Contact from './Contact';
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
 
 
 function App() {
@@ -86,8 +87,14 @@ function App() {
 
   return (
     <>
-    <Nav/>
-    {pages()}
+    <BrowserRouter>
+      <Nav/>
+      <Routes>
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+    </Routes>
+    </BrowserRouter>
+    {/* {pages()} */}
     {/* Operators and basic functionality of rest */}
     <section>
         <h1>Learning React</h1>
