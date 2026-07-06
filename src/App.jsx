@@ -5,8 +5,8 @@ import Home from './Home';
 import Box1 from './Box1';
 import Box2 from './Box2';
 import Nav from './Nav';
-import Contact from './Contact';
 import About from './About';
+import Contact from './Contact';
 
 
 function App() {
@@ -72,11 +72,22 @@ function App() {
       console.log(msg);
   }
 
+  const path = window.location.pathname;
+  
+  const pages = () => { 
+    if(path === "/about") {
+      return <About/>
+    } else if(path === "/contact") {
+      return <Contact/>
+    } else {
+      return <Home/>
+    }
+  }
+
   return (
     <>
     <Nav/>
-    <Contact/>
-    <About/>
+    {pages()}
     {/* Operators and basic functionality of rest */}
     <section>
         <h1>Learning React</h1>

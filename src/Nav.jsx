@@ -1,4 +1,6 @@
 import react from 'react'
+import Contact from './Contact';
+import About from './About';
 
 const Nav = () => {
     return(
@@ -10,9 +12,8 @@ const Nav = () => {
 
             <div>
                 <ul className="menu">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/contact">Contact</a></li>
                 </ul>
             </div>
         </nav>
