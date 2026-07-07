@@ -85,8 +85,47 @@ function App() {
     }
   }
 
+  //react hooks useState example
+  const[num2, setNum2] = react.useState(2);
+
+  const[name3, setName3] = react.useState("Dharna");
+
+  const[car, setCar] = react.useState([" BMW ", " Audi ", " Mercedes "]);
+
+  const[person4, setPerson4] = react.useState({name: "John", age: 30});
+
   return (
     <>
+    {/* react hooks example */}
+    <div>Num: {num2}</div>
+    <button onClick={()=> setNum2(num2+1)}>Increment</button>
+    <button onClick={()=> setNum2(num2-1)}>Decrement</button>
+
+    <div>Name: {name3}</div>
+    <button onClick={()=> setName3("Dharna Agrawal")}>Change Name</button>
+
+    <div>Car: {car}</div>
+    <button onClick={()=> setCar([...car, " Toyota "])}>Add Car</button>
+    <button onClick={()=> setCar(car.filter((value)=> value !== " Toyota "))}>Remove Car</button>
+
+    <div>Person: {person4.name}, {person4.age}</div>
+    <button onClick={()=> setPerson4({...person4, name: "Dharna Agrawal"})}>Change Name</button>
+    <button onClick={()=> setPerson4({...person4, age: 31})}>Change Age</button>
+
+    <input type="text" onChange={(e)=> setName3(e.target.value)} placeholder="Enter Name" />
+
+    <div>{name3}</div>
+    <input type="text" onChange={(e)=> setName3(e.target.value)} placeholder="Enter Name" />
+
+    <div>{person4.name}</div>
+    <div>{person4.age}</div>
+
+    <input type="text" onChange={(e)=> setPerson4({...person4, name: e.target.value})} placeholder="Enter Name" />
+    
+
+    {/* react router example */}
+    <h1>React Router Example</h1>
+
     <BrowserRouter>
       <Nav/>
       <Routes>
@@ -151,7 +190,6 @@ function App() {
     <Box2>
       <h4> H4 Box2 component</h4>
     </Box2>
-
     </>
   )
 }
