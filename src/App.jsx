@@ -118,17 +118,35 @@ function App() {
 
   const [check, setCheck] = react.useState(0);
   const [data, setData] = react.useState([]);
+  const [list, setList] = react.useState(1);
 
   useEffect(() => {
     console.log("Count changed:", check);
     fetch('https://jsonplaceholder.typicode.com/todos')
       .then(response => response.json())
-      .then((data) => {console.log(data); setData(data);})
-  }, [check]);
+      .then((data) => {
+        console.log(data); 
+        const startList = (list - 1) * 5;
+        const endList = startList + 5;
+        const slicedData = data.slice(startList, endList);
+        setData((e) => [...e, ...slicedData]);})
+  }, [list]);
+
+  let count2 = 0;
+
+  function increase2() {
+    count2++;
+    console.log(count2);
+    document.getElementById("counter").innerText = count2;
+  }
 
 
   return (
     <>
+    <h1 id="counter">{count2} gfegerhftnft</h1>
+
+    <button onClick={increase2}>Increment2</button>
+
     {/* UseEffect Example */}
     <div>
       <h1>{check}</h1>
@@ -141,6 +159,7 @@ function App() {
           <h2>{item.title}</h2>
         </div>
       ))}
+      <button onClick={() => setList(list + 1)}>Load Title More</button>
     </div>
     <div>{isLoggedIn ? <Login /> : <Register />}</div>
     <button onClick={() => setIsLoggedIn(!isLoggedIn)}>
