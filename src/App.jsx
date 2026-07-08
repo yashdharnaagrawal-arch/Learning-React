@@ -7,6 +7,8 @@ import Box2 from './Box2';
 import Nav from './Nav';
 import About from './About';
 import Contact from './Contact';
+import Login from './Login';
+import Register from './Register';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 
 
@@ -111,8 +113,14 @@ function App() {
     }
   };
 
+  const [isLoggedIn, setIsLoggedIn] = react.useState(false);
+
   return (
     <>
+    <div>{isLoggedIn ? <Login /> : <Register />}</div>
+    <button onClick={() => setIsLoggedIn(!isLoggedIn)}>
+      {isLoggedIn ? "Logout" : "Login"}
+    </button>
     {/* without reach hook use state problem, count will not increase on click because react will not re-render the component when count is changed, so we need to use react hook useState to solve this problem. */}
     <h1>{count}</h1>
 
