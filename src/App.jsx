@@ -179,13 +179,12 @@ function App() {
       <input
         type="password"
         placeholder="Enter Password"
-        value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
 
       <br /><br />
 
-      <button onClick={login}>Login</button>
+      <button onClick={login}>Login Password</button>
     </div>
     
     <div>Num: {num2}</div>
