@@ -94,8 +94,21 @@ function App() {
 
   const[person4, setPerson4] = react.useState({name: "John", age: 30});
 
+  let count = 0;
+
+  function increase() {
+    count++;
+    console.log(count);
+  }
+
   return (
     <>
+    {/* without reach hook use state problem, count will not increase on click because react will not re-render the component when count is changed, so we need to use react hook useState to solve this problem. */}
+    <h1>{count}</h1>
+
+    <button onClick={increase}>
+      Increment
+    </button>
     {/* react hooks example */}
     <div>Num: {num2}</div>
     <button onClick={()=> setNum2(num2+1)}>Increment</button>
