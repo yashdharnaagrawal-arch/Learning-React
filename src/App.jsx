@@ -101,6 +101,16 @@ function App() {
     console.log(count);
   }
 
+  const [password, setPassword] = react.useState("");
+
+  const login = () => {
+    if (password === "admin123") {
+      alert("Login Successful");
+    } else {
+      alert("Login Failed");
+    }
+  };
+
   return (
     <>
     {/* without reach hook use state problem, count will not increase on click because react will not re-render the component when count is changed, so we need to use react hook useState to solve this problem. */}
@@ -110,6 +120,22 @@ function App() {
       Increment
     </button>
     {/* react hooks example */}
+    {/* login page example */}
+    <div>
+      <h2>Login</h2>
+
+      <input
+        type="password"
+        placeholder="Enter Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+
+      <br /><br />
+
+      <button onClick={login}>Login</button>
+    </div>
+    
     <div>Num: {num2}</div>
     <button onClick={()=> setNum2(num2+1)}>Increment</button>
     <button onClick={()=> setNum2(num2-1)}>Decrement</button>
