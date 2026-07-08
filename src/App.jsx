@@ -10,6 +10,7 @@ import Contact from './Contact';
 import Login from './Login';
 import Register from './Register';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import { useEffect } from 'react';
 
 
 function App() {
@@ -115,8 +116,32 @@ function App() {
 
   const [isLoggedIn, setIsLoggedIn] = react.useState(false);
 
+  const [check, setCheck] = react.useState(0);
+  const [data, setData] = react.useState([]);
+
+  useEffect(() => {
+    console.log("Count changed:", count);
+    fetch('https://jsonplaceholder.typicode.com/todos/1')
+      .then(response => response.json())
+      .then(data => {console.log(data); setData([data]);})
+  }, [check]);
+
+
   return (
     <>
+    {/* UseEffect Example */}
+    <div>
+      <h1>{check}</h1>
+      <button onClick={() => setCheck(check + 1)}>
+        Increase Check
+      </button>
+      {data.map((item) => (
+        <div key={item.id}>
+          <h2>{item.title}</h2>
+          <p>{item.completed}</p>
+        </div>
+      ))}
+    </div>
     <div>{isLoggedIn ? <Login /> : <Register />}</div>
     <button onClick={() => setIsLoggedIn(!isLoggedIn)}>
       {isLoggedIn ? "Logout" : "Login"}
