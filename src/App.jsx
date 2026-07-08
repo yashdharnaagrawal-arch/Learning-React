@@ -120,10 +120,10 @@ function App() {
   const [data, setData] = react.useState([]);
 
   useEffect(() => {
-    console.log("Count changed:", count);
-    fetch('https://jsonplaceholder.typicode.com/todos/1')
+    console.log("Count changed:", check);
+    fetch('https://jsonplaceholder.typicode.com/todos')
       .then(response => response.json())
-      .then(data => {console.log(data); setData([data]);})
+      .then((data) => {console.log(data); setData(data);})
   }, [check]);
 
 
@@ -135,10 +135,10 @@ function App() {
       <button onClick={() => setCheck(check + 1)}>
         Increase Check
       </button>
+      <h1> Data from fetch API</h1>
       {data.map((item) => (
         <div key={item.id}>
           <h2>{item.title}</h2>
-          <p>{item.completed}</p>
         </div>
       ))}
     </div>
