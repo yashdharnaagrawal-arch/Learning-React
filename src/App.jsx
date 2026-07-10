@@ -14,7 +14,7 @@ import { useEffect } from 'react';
 import ChildUseContext from './ChildUseContext';
 import {userContext} from './context/UserContext';
 import Memo from './Memo';
-
+import Callback from './Callback';
 
 function App() {
   const x = 5;
@@ -152,6 +152,8 @@ function App() {
 
   return (
     <>
+    {/* usecallback Example */}
+    <Callback/>
     {/* useMemo Example */}
     <Memo/>
     {/* useContext Example */}
