@@ -11,6 +11,8 @@ import Login from './Login';
 import Register from './Register';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import { useEffect } from 'react';
+import ChildUseContext from './ChildUseContext';
+import {userContext} from './context/UserContext';
 
 
 function App() {
@@ -140,9 +142,18 @@ function App() {
     document.getElementById("counter").innerText = count2;
   }
 
+  const userObject = {
+    name: "Dharna",
+    age: 30,
+    city: "New Delhi"
+  }
+
 
   return (
     <>
+    <userContext.Provider value={userObject}>
+      <ChildUseContext />
+    </userContext.Provider>
     <h1 id="counter">{count2} gfegerhftnft</h1>
 
     <button onClick={increase2}>Increment2</button>
