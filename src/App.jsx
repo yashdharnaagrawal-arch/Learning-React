@@ -13,6 +13,7 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import { useEffect } from 'react';
 import ChildUseContext from './ChildUseContext';
 import {userContext} from './context/UserContext';
+import Memo from './Memo';
 
 
 function App() {
@@ -151,6 +152,9 @@ function App() {
 
   return (
     <>
+    {/* useMemo Example */}
+    <Memo/>
+    {/* useContext Example */}
     <userContext.Provider value={userObject}>
       <ChildUseContext />
     </userContext.Provider>
