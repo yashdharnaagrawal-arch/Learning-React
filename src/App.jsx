@@ -118,17 +118,17 @@ function App() {
 
   const [check, setCheck] = react.useState(0);
   const [data, setData] = react.useState([]);
-  const [list, setList] = react.useState(1);
+  const [list, setList] = react.useState(0);
 
   useEffect(() => {
-    console.log("Count changed:", check);
+    console.log("List changed:", list);
     fetch('https://jsonplaceholder.typicode.com/todos')
       .then(response => response.json())
-      .then((data) => {
-        console.log(data); 
-        const startList = (list - 1) * 5;
+      .then((apiData) => {
+        console.log(apiData); 
+        const startList = list * 5;
         const endList = startList + 5;
-        const slicedData = data.slice(startList, endList);
+        const slicedData = apiData.slice(startList, endList);
         setData((e) => [...e, ...slicedData]);})
   }, [list]);
 
