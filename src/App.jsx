@@ -15,6 +15,7 @@ import ChildUseContext from './ChildUseContext';
 import {userContext} from './context/UserContext';
 import Memo from './Memo';
 import Callback from './Callback';
+import Reducer from './Reducer';
 
 function App() {
   const x = 5;
@@ -152,6 +153,8 @@ function App() {
 
   return (
     <>
+    {/* useReducer Example */}
+    <Reducer/>
     {/* usecallback Example */}
     <Callback/>
     {/* useMemo Example */}
