@@ -16,6 +16,9 @@ import {userContext} from './context/UserContext';
 import Memo from './Memo';
 import Callback from './Callback';
 import Reducer from './Reducer';
+import Profile from './Profile';
+import Signin from './Signin';
+
 
 function App() {
   const x = 5;
@@ -150,9 +153,19 @@ function App() {
     city: "New Delhi"
   }
 
-
+  const [appUser, setAppUser] = react.useState(null);
   return (
     <>
+    {/* useNavigate Example */}
+    <BrowserRouter>
+    <Nav/>
+      <Routes>
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/profile" element={appUser ? <Profile /> : <Signin setAppUser={setAppUser} />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
+    </BrowserRouter>
     {/* useReducer Example */}
     <Reducer/>
     {/* usecallback Example */}
