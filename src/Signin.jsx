@@ -1,7 +1,10 @@
 import react from 'react';
 import Profile from './Profile';
+import { useNavigate } from 'react-router-dom';
 
 function Signin({setAppUser}){
+
+    const navigate = useNavigate();
 
     const [email, setEmail] = react.useState("");
     const [password, setPassword] = react.useState("");
@@ -18,7 +21,10 @@ function Signin({setAppUser}){
             setMsg("Login Successful");
             setAppUser(demo);
             alert("Login Successful");
-            return <Profile/>
+            // return <Profile/>
+            // return <Home/>;
+            // The Home will not redirect because it listen to parent compoent App which has profile and not child componentn wriiten home so to make it available we use navigate
+            navigate("/");
         }else{
             setMsg("Login Failed");
         }
