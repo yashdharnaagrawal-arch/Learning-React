@@ -18,6 +18,8 @@ import Callback from './Callback';
 import Reducer from './Reducer';
 import Profile from './Profile';
 import Signin from './Signin';
+import NavBar from './NavBar';
+import LogoDetail from './LogoDetail';
 
 
 function App() {
@@ -156,6 +158,12 @@ function App() {
   const [appUser, setAppUser] = react.useState(null);
   return (
     <>
+    <BrowserRouter>
+    <NavBar/>
+      <Routes>
+        <Route path="/logo-detail" element={<LogoDetail />} />
+      </Routes>
+    </BrowserRouter>
     {/* useNavigate Example */}
     <BrowserRouter>
     <Nav/>
